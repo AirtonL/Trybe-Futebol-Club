@@ -13,3 +13,15 @@ class LoginController {
       next(e);
     }
   };
+
+  tokenValidate = (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { role } = req.tokenData;
+      return res.status(200).send(role);
+    } catch (e) {
+      next(e);
+    }
+  };
+}
+
+export default new LoginController();
