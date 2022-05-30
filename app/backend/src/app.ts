@@ -1,4 +1,6 @@
 import * as express from 'express';
+import error from './middlewares/ErrorMiddleware';
+import router from './routes';
 
 class App {
   public app: express.Express;
@@ -6,6 +8,7 @@ class App {
   constructor() {
     this.app = express();
     this.config();
+    this.routes();
   }
 
   private config(): void {
@@ -18,6 +21,12 @@ class App {
 
     this.app.use(accessControl);
     this.app.use(express.json());
+  }
+
+  public routes(): void {
+    this.app.use(router);
+
+    this.app.use(error);
   }
 
   public start(PORT: string | number):void {
