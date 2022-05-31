@@ -25,6 +25,11 @@ class MatchController {
           .json({ message: 'It is not possible to create a match with two equal teams' });
       }
 
+      const { home, away } = await matchsService.findTeams(homeTeam, awayTeam);
+      if (!home || !away) {
+        return res.status(404).json({ message: 'There is no team with such id!' });
+      }
+
       const result = await matchsService.create(req.body);
       return res.status(201).json(result);
     } catch (err) {
