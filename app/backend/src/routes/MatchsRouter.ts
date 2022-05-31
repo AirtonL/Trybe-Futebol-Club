@@ -20,4 +20,9 @@ matchsRouter.patch(
   matchsController.finishMatch,
 );
 
+matchsRouter.patch(
+  '/:id',
+  matchsController.updateGoalsMatch,
+);
+
 export default matchsRouter;

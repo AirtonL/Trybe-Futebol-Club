@@ -46,6 +46,17 @@ class MatchController {
       next(err);
     }
   };
+
+  updateGoalsMatch = async (req: Request, res: Response, next: NextFunction) => {
+    const { id } = req.params;
+    const { homeTeamGoals, awayTeamGoals } = req.body;
+    try {
+      await matchsService.editMatchGoals({ id: Number(id), homeTeamGoals, awayTeamGoals });
+      return res.status(200).json({ message: 'Score changed successfully!' });
+    } catch (err) {
+      next(err);
+    }
+  };
 }
 
 export default new MatchController();
