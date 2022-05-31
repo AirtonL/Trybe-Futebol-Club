@@ -1,6 +1,8 @@
-import IMatchsServiceCreate from '../interfaces/IMatchsServiceCreate';
-import Match from '../database/models/Match';
 import Team from '../database/models/Team';
+import Match from '../database/models/Match';
+
+import IMatchsServiceCreate from '../interfaces/IMatchsServiceCreate';
+import IMatchsServiceEdit from '../interfaces/IMatchsServiceEdit';
 
 class MatchsService {
   constructor(
@@ -62,6 +64,10 @@ class MatchsService {
     const away = await this.teamModel.findByPk(awayTeam);
 
     return { home, away };
+  };
+
+  editMatchGoals = async ({ id, homeTeamGoals, awayTeamGoals }: IMatchsServiceEdit) => {
+    await this.model.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
   };
 }
 
