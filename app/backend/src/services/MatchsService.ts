@@ -56,6 +56,13 @@ class MatchsService {
   finishMatch = async (id: number) => {
     await this.model.update({ inProgress: false }, { where: { id } });
   };
+
+  findTeams = async (homeTeam: number, awayTeam: number) => {
+    const home = await this.teamModel.findByPk(homeTeam);
+    const away = await this.teamModel.findByPk(awayTeam);
+
+    return { home, away };
+  };
 }
 
 export default new MatchsService();
