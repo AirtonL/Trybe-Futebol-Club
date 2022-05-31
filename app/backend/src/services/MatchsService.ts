@@ -1,3 +1,4 @@
+import IMatchsServiceCreate from '../interfaces/IMatchsServiceCreate';
 import Match from '../database/models/Match';
 import Team from '../database/models/Team';
 
@@ -38,6 +39,17 @@ class MatchsService {
           attributes: ['teamName'],
         },
       ],
+    });
+  };
+
+  create = async (params: IMatchsServiceCreate) => {
+    const { homeTeam, awayTeam, homeTeamGoals, awayTeamGoals, inProgress } = params;
+    return this.model.create({
+      homeTeam,
+      awayTeam,
+      homeTeamGoals,
+      awayTeamGoals,
+      inProgress,
     });
   };
 }
