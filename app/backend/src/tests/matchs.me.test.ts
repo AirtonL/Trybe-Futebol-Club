@@ -1,7 +1,6 @@
 import chaiHttp = require('chai-http');
-const shell = require('shelljs');
-// import * as sinon from 'sinon';
 import * as chai from 'chai';
+const shell = require('shelljs');
 
 import { Response } from 'superagent';
 import { app } from '../app';

@@ -1,5 +1,5 @@
-import * as chai from 'chai';
 import chaiHttp = require('chai-http');
+import * as chai from 'chai';
 const shell = require('shelljs');
 
 import { Response } from 'superagent';

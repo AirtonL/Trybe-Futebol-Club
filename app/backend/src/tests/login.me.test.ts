@@ -1,11 +1,10 @@
 // import * as sinon from 'sinon';
-import * as chai from 'chai';
 import chaiHttp = require('chai-http');
+import * as chai from 'chai';
 const shell = require('shelljs');
 
 import { Response } from 'superagent';
 import { app } from '../app';
-// import Example from '../database/models/ExampleModel';
 
 import { invalidUser, validUser } from './mocksLogin';
 
