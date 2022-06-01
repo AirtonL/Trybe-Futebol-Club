@@ -5,5 +5,5 @@ export const validUser = {
 
 export const invalidUser = {
   email: 'qualquercoisa@gmail.teste',
-  password: 'nathaliagostosa',
+  password: ''1234,
 };
