@@ -1,6 +1,7 @@
 // import * as sinon from 'sinon';
 import * as chai from 'chai';
 import chaiHttp = require('chai-http');
+const shell = require('shelljs');
 
 import { Response } from 'superagent';
 import { app } from '../app';
@@ -15,6 +16,9 @@ const { expect } = chai;
 describe('Testes login', () => {
   let chaiHttpResponse: Response;
   let tokenTest: string;
+  beforeEach(() => {
+    shell.exec('npm run db:reset');
+  });
 
   it('verifica se o login é efetuado com sucesso e retorna o token', async () => {
     chaiHttpResponse = await chai
@@ -28,7 +32,7 @@ describe('Testes login', () => {
 
     expect(chaiHttpResponse.status).to.be.equal(200);
     expect(token).not.to.equal(undefined);
-    expect(user.role).to.be.equal('user');
+    expect(user.role).to.be.equal('admin');
   });
 
   it('verifica se retorna o status 500, error', async () => {
@@ -81,7 +85,7 @@ describe('Testes login', () => {
 
       const message = chaiHttpResponse.text;
 
-      expect(message).to.be.equal('user');
+      expect(message).to.be.equal('admin');
       expect(chaiHttpResponse.status).to.be.equal(200);
   });
 });

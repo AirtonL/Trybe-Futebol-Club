@@ -1,11 +1,10 @@
-// import * as sinon from 'sinon';
 import * as chai from 'chai';
 import chaiHttp = require('chai-http');
+const shell = require('shelljs');
 
 import { Response } from 'superagent';
 import { app } from '../app';
 import { allTeams } from './mocksTeams';
-// import Example from '../database/models/ExampleModel';
 
 chai.use(chaiHttp);
 
@@ -13,6 +12,11 @@ const { expect } = chai;
 
 describe('Testes Teams', () => {
   let chaiHttpResponse: Response;
+
+  beforeEach(() => {
+    shell.exec('npm run db:reset');
+  });
+
   it('verifica se trás todos os teams', async () => {
     chaiHttpResponse = await chai
     .request(app)
