@@ -1,6 +1,5 @@
 import chaiHttp = require('chai-http');
 import * as chai from 'chai';
-const shell = require('shelljs');
 
 import { Response } from 'superagent';
 import { app } from '../app';
@@ -12,10 +11,6 @@ const { expect } = chai;
 
 describe('Testes Teams', () => {
   let chaiHttpResponse: Response;
-
-  beforeEach(() => {
-    shell.exec('npm run db:reset');
-  });
 
   it('verifica se trás todos os teams', async () => {
     chaiHttpResponse = await chai

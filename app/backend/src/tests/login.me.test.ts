@@ -1,7 +1,6 @@
 // import * as sinon from 'sinon';
 import chaiHttp = require('chai-http');
 import * as chai from 'chai';
-const shell = require('shelljs');
 
 import { Response } from 'superagent';
 import { app } from '../app';
@@ -15,9 +14,6 @@ const { expect } = chai;
 describe('Testes login', () => {
   let chaiHttpResponse: Response;
   let tokenTest: string;
-  beforeEach(() => {
-    shell.exec('npm run db:reset');
-  });
 
   it('verifica se o login é efetuado com sucesso e retorna o token', async () => {
     chaiHttpResponse = await chai

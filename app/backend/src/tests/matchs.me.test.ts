@@ -12,9 +12,6 @@ const { expect } = chai;
 
 describe('Testes matchs', () => {
   let chaiHttpResponse: Response;
-  beforeEach(() => {
-    shell.exec('npm run db:reset');
-  });
 
   it('verifica rota getAll matchs', async () => {
     chaiHttpResponse = await chai
