@@ -1,3 +1,5 @@
 joi
 shelljs
 @types/shelljs
+sort-array
+@types/sort-array
