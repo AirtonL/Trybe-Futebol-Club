@@ -480,3 +480,12 @@ export const allMatchsMock = [
       teamAway: { teamName: 'Bahia' }
     }
   ]
+
+export const newMatch = {
+    id: 49,
+    homeTeam: 13,
+    homeTeamGoals: 10,
+    awayTeam: 2,
+    awayTeamGoals: 20,
+    inProgress: true,
+  };

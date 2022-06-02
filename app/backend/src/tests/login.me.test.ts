@@ -1,11 +1,12 @@
-// import * as sinon from 'sinon';
 import chaiHttp = require('chai-http');
+import * as sinon from 'sinon';
 import * as chai from 'chai';
 
 import { Response } from 'superagent';
 import { app } from '../app';
 
-import { invalidUser, validUser } from './mocksLogin';
+import { invalidUser, mockUser, validUser } from './mocksLogin';
+import User from '../database/models/User';
 
 chai.use(chaiHttp);
 
@@ -14,6 +15,17 @@ const { expect } = chai;
 describe('Testes login', () => {
   let chaiHttpResponse: Response;
   let tokenTest: string;
+
+  before(async () => {
+    sinon
+      .stub(User, "findOne")
+      .resolves(
+        mockUser as User);
+  });
+
+  after(()=>{
+    (User.findOne as sinon.SinonStub).restore();
+  });
 
   it('verifica se o login é efetuado com sucesso e retorna o token', async () => {
     chaiHttpResponse = await chai
