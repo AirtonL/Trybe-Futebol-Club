@@ -4,10 +4,10 @@ import * as sinon from 'sinon';
 
 import { Response } from 'superagent';
 import { app } from '../app';
-import { allMatchsMock, newMatch } from './mocksMatchs';
+import { allMatchsMock, newMatch } from './mocks/mocksMatchs';
 import Match from '../database/models/Match';
 import User from '../database/models/User';
-import { mockUser, validUser } from './mocksLogin';
+import { mockUser, validUser } from './mocks/mocksLogin';
 
 chai.use(chaiHttp);
 

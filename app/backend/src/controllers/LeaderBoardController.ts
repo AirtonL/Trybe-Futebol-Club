@@ -14,12 +14,21 @@ class LeaderBoardController {
   getLeaderBoardAway = async (_req: Request, res: Response, next: NextFunction) => {
     try {
       const board = await LeaderBoardService.leaderBoardAway();
-      console.log(board);
       return res.status(200).json(board);
     } catch (e) {
       next(e);
     }
   };
+
+  // getLeaderBoardGeneral = async (_req: Request, res: Response, next: NextFunction) => {
+  //   try {
+  //     const away = await LeaderBoardService.leaderBoardAway();
+  //     const home = await LeaderBoardService.leaderBoard();
+  //     // return res.status(200).json(board);
+  //   } catch (e) {
+  //     next(e);
+  //   }
+  // };
 }
 
 export default new LeaderBoardController();

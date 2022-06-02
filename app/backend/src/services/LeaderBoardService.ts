@@ -25,6 +25,10 @@ class LeaderBoardService {
     const table = await LeaderBoardHelper.constructorLeaderBoard(teams, 'away');
     return LeaderBoardService.sort(table);
   }
+
+  // async leaderBoardGeneral() {
+
+  // }
 }
 
 export default new LeaderBoardService();

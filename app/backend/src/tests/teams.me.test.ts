@@ -3,7 +3,7 @@ import * as chai from 'chai';
 
 import { Response } from 'superagent';
 import { app } from '../app';
-import { allTeams } from './mocksTeams';
+import { allTeams } from './mocks/mocksTeams';
 
 chai.use(chaiHttp);
 

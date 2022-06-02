@@ -4,7 +4,7 @@ const shell = require('shelljs');
 
 import { Response } from 'superagent';
 import { app } from '../app';
-import { leaderBoardHome } from './mockLeaderBoard';
+import { leaderBoardHome } from './mocks/mockLeaderBoard';
 
 chai.use(chaiHttp);
 
