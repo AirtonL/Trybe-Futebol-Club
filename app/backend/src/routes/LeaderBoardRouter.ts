@@ -4,6 +4,11 @@ import leaderBoardController from '../controllers/LeaderBoardController';
 const leaderBoardRouter = Router();
 
 leaderBoardRouter.get(
+  '/',
+  leaderBoardController.getLeaderBoardGeneral,
+);
+
+leaderBoardRouter.get(
   '/home',
   leaderBoardController.getLeaderBoard,
 );

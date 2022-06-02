@@ -1,4 +1,5 @@
 export default interface ITableService {
+  name: string,
   totalGames: number;
   totalVictories: number;
   totalDraws: number;

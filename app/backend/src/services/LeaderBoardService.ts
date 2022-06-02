@@ -2,6 +2,7 @@ import sortArray = require('sort-array');
 import ITableService from '../interfaces/ITableService';
 import Team from '../database/models/Team';
 import LeaderBoardHelper from '../utils/LeaderBoard';
+import constructorBoardGeneral from '../utils/constructorBoardGeneral';
 
 class LeaderBoardService {
   constructor(
@@ -26,9 +27,13 @@ class LeaderBoardService {
     return LeaderBoardService.sort(table);
   }
 
-  // async leaderBoardGeneral() {
-
-  // }
+  leaderBoardGeneral = (away: ITableService[], home: ITableService[]) => {
+    const table = home.map((teamHome) => {
+      const awayTeam = away.find(({ name }) => name === teamHome.name);
+      return constructorBoardGeneral(awayTeam!, teamHome);
+    });
+    return LeaderBoardService.sort(table);
+  };
 }
 
 export default new LeaderBoardService();
