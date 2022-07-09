@@ -5,7 +5,7 @@ const constructorBoardGeneral = (awayTeam: ITableService, teamHome: ITableServic
   const totalPoints = awayTeam!.totalPoints + teamHome.totalPoints;
 
   return {
-    name: awayTeam!.name,
+    name: awayTeam?.name,
     totalPoints,
     totalGames,
     totalVictories: awayTeam!.totalVictories + teamHome.totalVictories,
